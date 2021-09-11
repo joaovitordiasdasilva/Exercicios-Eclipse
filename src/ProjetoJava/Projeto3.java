@@ -5,13 +5,15 @@ import java.util.Scanner;
 public class Projeto3 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-
+		Login login = new Login();
+		login.preLogin();
+		
 		int x, veri = 0;
-		String userV[] = { "amanda", "rafaela", "joao" };
-		String senhaV[] = { "1234", "1212", "3232" };
+		//String userV[] = { "amanda", "rafaela", "joao" };
+		//String senhaV[] = { "1234", "1212", "3232" };
 		String cidadeV[] = { "sao paulo", "maua", "santo andre" };
-		String user;
-		String senha;
+		//String user;
+		//String senha;
 		String cidade;
 
 		System.out.print("Você é:" + "\n1- Paciente" + "\n2- Psicólogo" + "\nResposta: ");
@@ -25,8 +27,8 @@ public class Projeto3 {
 				x = scan.nextInt();
 
 				if (x == 1) {
-
-					do {
+					login.fazLogin();
+					/*do {
 
 						System.out.print("\nInsira seu usuário:\n");
 						user = scan.next();
@@ -38,11 +40,11 @@ public class Projeto3 {
 						System.out.print("\nsenha: " + senha);
 
 						for (int cont = 0; cont < 3; cont++) {
-							if (user.equals(userV[cont])) {
+							if (user.equals(login.getUserV(cont))) {   //(user.equals(userV[cont])) {
 								veri = cont;
 							}
 						}
-					} while (!user.equals(userV[veri]) || !senha.equals(senhaV[veri]));
+					} while (!user.equals(userV[veri]) || !senha.equals(senhaV[veri]));*/
 
 					System.out.println("\nO que deseja fazer?" + "\n1- Consultas" + "\n2- Agendamentos" + "\nResposta: ");
 					x = scan.nextInt();
@@ -50,6 +52,7 @@ public class Projeto3 {
 			}
 
 			if (x == 1) {
+				login.fazLogin();
 				System.out.print("Você tem uma consulta marcada para o dia 09/09/21 as 17:00 na cidade de sao paulo com o dr joao");
 			}
 
