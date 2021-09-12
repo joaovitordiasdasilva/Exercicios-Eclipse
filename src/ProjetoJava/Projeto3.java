@@ -7,6 +7,9 @@ public class Projeto3 {
 		Scanner scan = new Scanner(System.in);
 		Login login = new Login();
 		login.preLogin();
+		Agendamento agendamento = new Agendamento();
+
+		
 		
 		int x, veri = 0;
 		//String userV[] = { "amanda", "rafaela", "joao" };
@@ -52,13 +55,12 @@ public class Projeto3 {
 			}
 
 			if (x == 1) {
-				login.fazLogin();
 				System.out.print("Você tem uma consulta marcada para o dia 09/09/21 as 17:00 na cidade de sao paulo com o dr joao");
 			}
 
 			if (x == 2) {
-
-				do {
+				agendamento.fazCadastro();
+				/*do {
 
 					System.out.print("Digite a cidade: ");
 					cidade = scan.next();
@@ -67,7 +69,7 @@ public class Projeto3 {
 				} while (!cidade.equals(cidadeV[veri]));
 
 				System.out.println("cidade incorreta, digite outra cidade. ");
-				cidade = scan.next();
+				cidade = scan.next();*/
 			}
 		}
 	}

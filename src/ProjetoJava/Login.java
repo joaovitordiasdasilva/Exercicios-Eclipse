@@ -10,11 +10,6 @@ public class Login extends Usuario {
 	
 	int verificar;
 	
-	public Login () {
-		
-		//System.out.println("abrir a classe login");
-		}
-	
 	public void preLogin () {
 		
 		userV[0] = "amanda"; 
