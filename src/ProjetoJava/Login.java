@@ -30,11 +30,10 @@ public class Login extends Usuario {
 			System.out.println("Insira sua senha:");
 			senha = scan.next();
 
-			//System.out.print("\nusuário: " + user);
-			//System.out.print("\nsenha: " + senha);
+			
 
 			for (int cont = 0; cont < 3; cont++) {
-				if (user.equals(userV[cont])) {   //(user.equals(userV[cont])) {
+				if (user.equals(userV[cont])) {   
 					verificar = cont;
 				}
 			}

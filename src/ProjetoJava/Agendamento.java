@@ -27,30 +27,30 @@ public void preCadastro() {
 			System.out.print("\nCidades disponiveis: 1 - Santo Andre  2 - Sao Bernardo   3 - Maua:\nDigite sua cidade:\n");
 			cidade = scan.nextInt();
 			if(cidade == 1) {
-			System.out.println("sua cidade é Santo Andre.");
+			System.out.println("\nsua cidade é Santo Andre.");
 			
 			}
 			if(cidade == 2) {
-			System.out.println("sua cidade é Sao Bernardo.");
+			System.out.println("\nsua cidade é Sao Bernardo.");
 			
 			}
 			if(cidade == 3) {
-			System.out.println("sua cidade é Maua.");
+			System.out.println("\nsua cidade é Maua.");
 			
 			}
 		
 			System.out.println("Horario disponivel:   1 - 09:00    2 - 10:00   3 - 11:00.\nDigite seu horario:\n");
 			horario = scan.nextInt();
 			if(horario == 1){
-			System.out.println("seu horario é 09:00.");
+			System.out.println("\nseu horario é 09:00.");
 		
 			}
 			if(horario == 2) {	
-			System.out.println("seu horario é 10:00.");
+			System.out.println("\nseu horario é 10:00.");
 		
 			}
 			if(horario == 3) {
-			System.out.println("seu horario é 11:00.");
+			System.out.println("\nseu horario é 11:00.");
 			
 			}
 			
