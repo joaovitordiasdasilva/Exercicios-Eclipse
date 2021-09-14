@@ -3,69 +3,111 @@ package ProjetoJava;
 import java.util.Scanner;
 
 public class Agendamento extends Usuario {
+	int verificar;
+	
+	//String cidadeTemporaria = "";
+	//String horarioTemporario = "";
+	//String cidadeAgendada = "";
+	//String horarioAgendado = "";
 	String[] cidadeV = new String [3];
 	String[] horarioV = new String [3];
 	
 	Scanner scan = new Scanner(System.in);
 	
-	int verificar;
-public void preCadastro() {
-		cidadeV[0] = "Santos";
-		cidadeV[1] = "Osasco";
-		cidadeV[2] = "Maua";
+	public Agendamento () {	
 		
-		horarioV[0] = "09:00";
-		horarioV[1] = "10:00";	
-		horarioV[2] = "11:00";
-}
+		cidadeV[0] = "Santo André";
+		cidadeV[1] = "São Bernardo";
+		cidadeV[2] = "Mauá";
+		
+		horarioV[0] = "09h";
+		horarioV[1] = "10h";	
+		horarioV[2] = "11h";	
+		
+		int cont = 0;
+	}
 	
-	
-	public void fazCadastro() {
+	public void fazAgendamento() {
 		
 		do {
 			
-			System.out.print("\nCidades disponiveis: 1 - Santo Andre  2 - Sao Bernardo   3 - Maua:\nDigite sua cidade:\n");
-			cidade = scan.nextInt();
-			if(cidade == 1) {
-			System.out.println("\nsua cidade é Santo Andre.");
-			
-			}
-			if(cidade == 2) {
-			System.out.println("\nsua cidade é Sao Bernardo.");
-			
-			}
-			if(cidade == 3) {
-			System.out.println("\nsua cidade é Maua.");
-			
-			}
+			for (int y = 0; y < 1; y++) {
+				
+				System.out.println("\n=====================================================");
+				System.out.println("               --> AGENDAMENTO <--");
+				System.out.println("\nPara agendar, escolha uma das opções.");
+				System.out.print("\nCidades disponíveis:"
+						+ "\n1- Santo André     "
+						+ "2- São Bernardo     "
+						+ "3- Mauá"
+						+ "\n>>> ");
+				cidade = scan.nextInt();
+				
+				if(cidade < 4 && cidade > 0) {
+						
+					System.out.print("\nHorários disponíveis:"
+							+ "\n1- 09h     "
+							+ "2- 10h     "
+							+ "3- 11h"
+							+ "\n>>> ");
+					horario = scan.nextInt();
 		
-			System.out.println("Horario disponivel:   1 - 09:00    2 - 10:00   3 - 11:00.\nDigite seu horario:\n");
-			horario = scan.nextInt();
-			if(horario == 1){
-			System.out.println("\nseu horario é 09:00.");
-		
-			}
-			if(horario == 2) {	
-			System.out.println("\nseu horario é 10:00.");
-		
-			}
-			if(horario == 3) {
-			System.out.println("\nseu horario é 11:00.");
-			
-			}
-			
-			
-			
-		} while (cidade <= 0 || cidade >= 4 || horario <= 0 || horario >= 4);
-		//System.out.println(cid + " " + hora);
-	}
+					if(horario < 4 && horario > 0) {
+							
+						for(int cont = 0; cont < 3; cont++) {
+							if((cidade - 1) == cont) {
+								
+								cidadeTemporaria += cidadeV[cont];
+							}
+							
+							if((horario - 1) == cont) {
+								
+								horarioTemporario += horarioV[cont];
+							}
+						}
+						
+						System.out.print("\n-> Cidade: " + cidadeTemporaria
+								+ "\n-> Horário: " + horarioTemporario 
+								+ "\n\nConfirma?"
+								+ "\n1- Sim                 2- Não"
+								+ "\n>>> ");
+						x = scan.nextInt();
+						
+						if(x == 1) {
+							
+							cidadeTemporaria = cidadeAgendada;
+							horarioTemporario = horarioAgendado;	
+						}
+						
+						else {
+							
+							System.out.println("\n                  ***Tudo bem!***"
+									+ "\n                  Vamos refazer o processo então.");	
+						}
+					}
+					
+					else {
+						
+						System.out.println("\n      ***Cidade ou horário não disponíveis***"
+								+ "\n                 Insira uma das opções apresentadas.");
+						y--;		
+					}
+				}
 
-	public Scanner getScan() {
-		return scan;
-	}
+				else {
+				
+				System.out.println("\n      ***Cidade ou horário não disponíveis***"
+						+ "\n                 Insira uma das opções apresentadas.");
+				y--;
+				
+				}
+			}
+		}
+		
+		while(x == 2);
+			
+		System.out.println("\n       ***Agendamento feito com sucesso!!!***");
 
-	public void setScan(Scanner scan) {
-		this.scan = scan;
 	}
 
 	public int getVerificar() {
@@ -92,4 +134,11 @@ public void preCadastro() {
 		this.horarioV = horarioV;
 	}
 
+	public Scanner getScan() {
+		return scan;
+	}
+
+	public void setScan(Scanner scan) {
+		this.scan = scan;
+	}
 }

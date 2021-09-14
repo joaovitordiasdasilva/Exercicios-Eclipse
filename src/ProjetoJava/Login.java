@@ -3,61 +3,89 @@ package ProjetoJava;
 import java.util.Scanner;
 
 public class Login extends Usuario {
-	String userV[] = new String [3];
-	String senhaV[] = new String [3];
-	
+	int verificar;
 	Scanner scan = new Scanner(System.in);
 	
-	int verificar;
+	Dados dados = new Dados();
 	
-	public void preLogin () {
-		
-		userV[0] = "amanda"; 
-		userV[1] = "rafaela";
-		userV[2] = "joao";
-		
-		senhaV[0] = "1234";  
-		senhaV[1] = "1212";
-		senhaV[2] = "3232";	
+	public Login() {	
+		//System.out.println("abrir a classe login");
 	}
 	
-	public void fazLogin () {
-		do {
+	///////////////////////////// FAZ LOGIN /////////////////////////////
+	public void fazLogin() throws InterruptedException {
 
-			System.out.print("\nInsira seu usuário:\n");
+		do {
+			System.out.println("\n=====================================================");
+			System.out.println("                   --> LOGIN <--");
+			
+			System.out.print("\nUsuário: ");
 			user = scan.next();
 
-			System.out.println("Insira sua senha:");
+			System.out.print("Senha: ");
 			senha = scan.next();
 
-			
-
-			for (int cont = 0; cont < 3; cont++) {
-				if (user.equals(userV[cont])) {   
+			for (int cont = 0; cont < 5; cont++) {
+				if (user.equals(dados.getUserV(cont))) {
 					verificar = cont;
 				}
 			}
-		} while (!user.equals(userV[verificar]) || !senha.equals(senhaV[verificar]));
+			
+			if (!user.equals(dados.getUserV(verificar)) || !senha.equals(dados.getSenhaV(verificar))) {
+				
+				System.out.println("\n*        **Usuário ou senha inválidos***"
+						+ "\nTente novamente.");
+			}
+			
+			if(user.equals(dados.getUserV(verificar)) && senha.equals(dados.getSenhaV(verificar))) {
+				
+				System.out.print("\nEntrando");
+				
+				for(int cont = 0; cont < 5; cont++) {
+					System.out.print(".");
+					Thread.sleep(750);
+				}	
+				
+				System.out.println("\n       ***Login efetuado com sucesso!!!***");
+			}
+		} 
+		
+		while (!user.equals(dados.getUserV(verificar)) || !senha.equals(dados.getSenhaV(verificar)));
 	}
 	
-	
-
-	public String[] getUserV() {
-		return userV;
+	///////////////////////////// CRIA LOGIN /////////////////////////////
+	public void criaLogin() {
+		
+		String senhaConfere;
+		
+		System.out.print("\n=====================================================");
+		System.out.print("\nPara se registrar, insira as seguintes informações:"
+				+ "\n\nUsuário: ");
+		user = scan.next();
+		
+		do {
+			System.out.print("Senha: ");
+			senha = scan.next();					
+			
+			System.out.print("Confirmação de senha: ");
+			senhaConfere = scan.next();
+			
+			if (!senha.equals(senhaConfere)) {
+				System.out.println("\n*As senhas inseridas são diferentes*"
+						+ "\nInsira novamente.\n");			
+			}										
+		}
+		
+		while(!senha.equals(senhaConfere));
+		
+		for(int cont = 0; cont < 5; cont++) {
+			if(dados.getUserV(cont).equals("")) {
+				
+				dados.setUserV (user, cont);
+				dados.setUserV (senha, cont);
+								
+				break;
+			}
+		}	
 	}
-
-	public void setUserV(String[] userV) {
-		this.userV = userV;
-	}
-
-	public String[] getSenhaV() {
-		return senhaV;
-	}
-
-	public void setSenhaV(String[] senhaV) {
-		this.senhaV = senhaV;
-	}
-	
-	
-	
 }
